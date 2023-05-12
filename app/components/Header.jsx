@@ -16,13 +16,13 @@ function Header() {
   };
 
   return (
-    <header className="glass">
+    <header className="glass sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-6 md:flex md:justify-between md:items-center">
         {/* <nav className="container mx-auto px-4 py-6 flex justify-between items-center"> */}
         <div className='flex justify-between items-center'>
           <Link href="/" className="text-xl font-bold text-white hover:text-gray-200">
             <div className="flex items-center flex-shrink-0 mr-6">
-              <img className="w-10 h-10 transform hover:scale-110 transition-all duration-500" src="../favicon.ico" alt="Logo" />
+              {/* <img className="w-10 h-10 transform hover:scale-110 transition-all duration-500" src="../favicon.ico" alt="Logo" /> */}
               <span className="font-bold text-xl tracking-tight ml-2 transform hover:scale-110 transition-all duration-500">GifStash</span>
             </div>
           </Link>

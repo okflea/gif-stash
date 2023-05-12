@@ -17,14 +17,15 @@
 /* } */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  @apply min-h-screen bg-gradient-to-b from-purple-900 via-pink-900 to-red-900 
+  /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient( */
   /*     to bottom, */
   /*     transparent, */
   /*     rgb(var(--background-end-rgb)) */
   /*   ) */
   /*   rgb(var(--background-start-rgb)); */
-  background: url(@/../../public/bg.webp);
+  /* background: url(@/../../public/bg.webp); */
 }
 .glass {
   @apply bg-slate-300 bg-opacity-50 backdrop-blur-lg  border border-slate-200 border-opacity-50

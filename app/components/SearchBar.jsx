@@ -8,8 +8,8 @@ const SearchBar = () => {
     <div>
 
       <form action={handleSubmit} >
-        <input type="text" name="search" className="p-4 bg-slate-400 bg-opacity-50 backdrop-blur-lg rounded-lg border border-slate-200 border-opacity-50"/>
-        <button type="submit" className="bg-slate-600 bg-opacity-50 backdrop-blur-lg rounded-lg border border-slate-200 border-opacity-50 p-3">Search</button>
+        <input type="text" name="search" className="p-4 bg-slate-800 text-slate-300 rounded-lg border border-slate-400  focus:border-slate-500"/>
+        <button type="submit" className="bg-slate-800 rounded-lg border text-slate-300 ml-4 transform hover:scale-110 transition-all duration-500 border-slate-400 p-3">Search</button>
       </form>
     </div>
   )
