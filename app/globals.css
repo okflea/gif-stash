@@ -26,3 +26,6 @@ body {
   /*   rgb(var(--background-start-rgb)); */
   background: url(@/../../public/bg.webp);
 }
+.glass {
+  @apply bg-slate-300 bg-opacity-50 backdrop-blur-lg  border border-slate-200 border-opacity-50
+}
