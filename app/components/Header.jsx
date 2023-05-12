@@ -2,21 +2,22 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { UserButton } from '@clerk/nextjs';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname=usePathname()
+  const pathname = usePathname()
 
-  useEffect(() =>{
+  useEffect(() => {
     setIsMenuOpen(false);
-  },[pathname])
+  }, [pathname])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="glass sticky top-0 z-50">
+    <header className="glass sticky top-0 z-50 w-screen">
       <nav className="container mx-auto px-4 py-6 md:flex md:justify-between md:items-center">
         {/* <nav className="container mx-auto px-4 py-6 flex justify-between items-center"> */}
         <div className='flex justify-between items-center'>
@@ -51,16 +52,20 @@ function Header() {
         <div
           className={`${isMenuOpen ? '' : 'hidden'} md:block md:flex md:items-center w-full md:w-auto`}
         >
-          <div className="text-sm md:flex-grow">
-            <Link href="/discover" className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
+          <div className="text-sm mt-4 md:flex-grow flex justify-end items-center">
+            <Link href="/discover" className="block md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
               Discover
             </Link>
-            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/fav">
+            <Link className="block  md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/fav">
               Favourites
             </Link>
-            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white" href="/login">
-              Sign In / Sign Up
-            </Link>
+            {/* <Link className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white" href="/login"> */}
+            {/*   Sign In / Sign Up */}
+            {/* </Link> */}
+
+            <div>
+              <UserButton />
+            </div>
           </div>
         </div>
       </nav>
