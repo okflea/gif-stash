@@ -52,13 +52,13 @@ function Header() {
           className={`${isMenuOpen ? '' : 'hidden'} md:block md:flex md:items-center w-full md:w-auto`}
         >
           <div className="text-sm md:flex-grow">
-            <Link href="/discover" className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-white mr-4">
+            <Link href="/discover" className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
               Discover
             </Link>
-            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-white mr-4" href="/fav">
+            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/fav">
               Favourites
             </Link>
-            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-500 hover:text-white" href="/login">
+            <Link className="block mt-4 md:inline-block md:mt-0 text-gray-300 hover:text-white" href="/login">
               Sign In / Sign Up
             </Link>
           </div>
