@@ -1,6 +1,7 @@
 // import SearchBar from "../components/SearchBar"
 import Image from 'next/image'
 import data from '../data.json'
+import GifContainer from '../components/GifContainer';
 const page = () => {
 
   const url = "https://media3.giphy.com/media/I0xA1atOOea0E/200w.webp?cid=a5a58d70wgkmz7lhsliiffo990uwu3u3fww2jwgnr8pb76s2&ep=v1_gifs_search&rid=200w.webp&ct=g"
@@ -10,8 +11,8 @@ const page = () => {
   async function handleSubmit(e) {
     "use server";
     const query = e.get("search");
-    let response=data.data
-    console.log(response)
+    // let response=data.data
+    // console.log(response)
     console.log(query);
   }
   return (
@@ -19,7 +20,6 @@ const page = () => {
       <div className='glass rounded-lg max-w-5xl mx-auto p-5 md:p-16 w-screen'>
         {/* < SearchBar/> */}
 
-        <div>
           <form action={handleSubmit} className="flex flex-col justify-center items-center">
             <input 
               type="text" 
@@ -30,25 +30,14 @@ const page = () => {
               className="hover:bg-slate-800 bg-slate-400 rounded-lg border text-slate-300 m-3 transform hover:scale-110 transition-all duration-500 border-slate-400 p-3 ">
               Search</button>
           </form>
-        </div>
 
 
         <div 
-          className={` bg-slate-800 flex flex-wrap justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-            <Image src={url} width={200} height={200} className="w-full h-auto" />
-          </div>            
+          className={`w-full flex flex-wrap gap-2 justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
 
-
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-            <Image src={url} width={200} height={200} className="w-full h-auto" />
-          </div>            
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-            <Image src={url} width={200} height={200} className="w-full h-auto" />
-          </div>            
-          <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-            <Image src={url} width={200} height={200} className="w-full h-auto" />
-          </div>            
+          {data.data.map((gif) => (
+            <GifContainer key={gif.id} name={gif.title} url={gif.images.fixed_width_downsampled.webp} />
+          ))} 
 
         </div>
 

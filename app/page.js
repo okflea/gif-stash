@@ -1,8 +1,5 @@
-import Image from 'next/image'
-
 export default function Home() {
   return (
-      // <div className='flex justify-center items-center min-h-screen'>
     <>
       <div className='flex w-screen justify-center items-center absolute top-1/3 '>
         <div className='bg-slate-300 bg-opacity-50 backdrop-blur-lg rounded-lg border border-slate-200 border-opacity-50 max-w-5xl mx-auto p-8 md:p-16'>
