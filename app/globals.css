@@ -17,7 +17,8 @@
 /* } */
 
 body {
-  @apply min-h-screen bg-gradient-to-b from-purple-900 via-pink-900 to-red-900 
+  /* @apply h-auto bg-gradient-to-b from-purple-900 via-pink-900 to-red-900  */
+  @apply min-h-screen bg-gradient-to-b from-purple-900 via-pink-900 to-red-900 bg-fixed 
   /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient( */
   /*     to bottom, */

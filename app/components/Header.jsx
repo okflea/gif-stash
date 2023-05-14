@@ -18,7 +18,7 @@ function Header() {
   };
 
   return (
-    <header className="glass sticky top-0 z-50 w-screen">
+    <header className="glass fixed top-0 z-50 w-screen">
       <nav className="container mx-auto px-4 py-6 md:flex md:justify-between md:items-center">
         {/* <nav className="container mx-auto px-4 py-6 flex justify-between items-center"> */}
         <div className='flex justify-between items-center'>
