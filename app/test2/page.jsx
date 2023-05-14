@@ -3,16 +3,21 @@
 import React, { useState } from "react";
 import GifContainer from "../components/GifContainer";
 import debounce from "../utils/debounce";
+import { useAuth } from "@clerk/nextjs";
+import useLocalStorage from "../utils/useLocalStorage";
 
 const Page = () => {
-  const [data, setData] = useState([]);
-  const [selectedNumber, setSelectedNumber] = useState(null);
+  const [data, setData] = useState(null);
+  const [selectedNumber, setSelectedNumber] = useState();
+  const {userId,isLoaded} = useAuth()
+  const [favourites, setFavourites] = useLocalStorage(`${userId}`,localStorage.getItem(userId) ?JSON.parse(localStorage.getItem(userId)): [])
+
 
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
   }
 
-  async function handleSubmit(e) {
+  async function handleFetch(e) {
     e.preventDefault();
     let query = " "
     if (e.target.search)
@@ -30,14 +35,14 @@ const Page = () => {
     setData(data.data || []);
   }
 
-  const debounceFetch = debounce(handleSubmit, 500);
+  const debounceFetch = debounce(handleFetch, 500);
 
   return (
     <div className="flex flex-col justify-center items-center absolute top-1/4 w-full p-5">
       <h1 className="text-3xl font-bold mb-6 text-white transform hover:scale-110 transition-all duration-500">
         Discover
       </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+      <form onSubmit={handleFetch} className="flex flex-col items-center">
         <div className="flex flex-row mb-2">
           <input
             onChange={debounceFetch}
@@ -64,12 +69,12 @@ const Page = () => {
           ))}
         </div>
       </form>
-      {data.length > 0 && (
+      {data?.length > 0 && (
 
         <div
           className={`glass mt-4 w-full flex flex-wrap gap-2 justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
           {data.map((gif) => (
-            <GifContainer key={gif.id} name={gif.title} url={gif.images.fixed_width_downsampled.webp} />
+            <GifContainer key={gif.id} name={gif.title} url={gif.images.fixed_width_downsampled.webp} userId={userId} isLoaded={isLoaded} favourites={favourites} setFavourites={setFavourites} isFav={null}/>
           ))}
         </div>
       )}

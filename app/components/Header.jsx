@@ -20,11 +20,9 @@ function Header() {
   return (
     <header className="glass fixed top-0 z-50 w-screen">
       <nav className="container mx-auto px-4 py-6 md:flex md:justify-between md:items-center">
-        {/* <nav className="container mx-auto px-4 py-6 flex justify-between items-center"> */}
         <div className='flex justify-between items-center'>
           <Link href="/" className="text-xl font-bold text-white hover:text-gray-200">
             <div className="flex items-center flex-shrink-0 mr-6">
-              {/* <img className="w-10 h-10 transform hover:scale-110 transition-all duration-500" src="../favicon.ico" alt="Logo" /> */}
               <span className="font-bold text-xl tracking-tight ml-2 transform hover:scale-110 transition-all duration-500">GifStash</span>
             </div>
           </Link>
@@ -51,19 +49,19 @@ function Header() {
           </button>
         </div>
         <div
-          className={`${isMenuOpen ? '' : 'hidden'} md:block md:flex md:items-center w-full md:w-auto`}
+          className={`${isMenuOpen ? '' : 'hidden'} md:block md:items-center w-full md:w-auto`}
         >
           <div className="text-sm mt-4 md:flex-grow flex justify-end items-center">
-            <Link href="/discover" className="block md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
+            <Link href="/discover" className="font-semibold block md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4">
               Discover
             </Link>
-            <Link className="block  md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/favourites">
+            <Link className="block font-semibold md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/favourites">
               Favourites
             </Link>
 
             <div>
               {isLoaded && userId ? (<UserButton />) : (
-                <Link className="block  md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/login">
+                <Link className="block font-semibold md:inline-block md:mt-0 text-gray-300 hover:text-white mr-4" href="/login">
                   Sign In / Sign Up
                 </Link>
               )}
