@@ -9,10 +9,9 @@ import useLocalStorage from "../utils/useLocalStorage";
 const Page = () => {
   const [data, setData] = useState(null);
   const [selectedNumber, setSelectedNumber] = useState();
-  const {userId,isLoaded} = useAuth()
-  const [favourites, setFavourites] = useLocalStorage(`${userId}`,[])
+  const { userId, isLoaded } = useAuth()
+  const [favourites, setFavourites] = useLocalStorage(`${userId}`, [])
 
-  console.log(favourites)
 
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
@@ -59,7 +58,7 @@ const Page = () => {
           </button>
         </div>
         <div className="flex flex-row space-x-2 mt-2">
-          {[1, 2, 3, 4 ,5].map((number) => (
+          {[1, 2, 3, 4, 5].map((number) => (
             <button
               key={number}
               onClick={() => handleNumberClick(number)}
@@ -72,12 +71,16 @@ const Page = () => {
       </form>
       {data?.length > 0 && (
 
-        <div
-          className={`glass mt-4 w-full flex flex-wrap gap-2 justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
-          {data.map((gif) => (
-            <GifContainer key={gif.id} name={gif.title} url={gif.images.fixed_width_downsampled.webp} userId={userId} isLoaded={isLoaded} favourites={favourites} setFavourites={setFavourites} isFav={null}/>
-          ))}
-        </div>
+        <>
+          <p className="text-slate-200 font-thin mt-4">double click on the start button to stash</p>
+          <div
+            className={`glass mt-4 w-full flex flex-wrap gap-2 justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
+            {data.map((gif) => (
+              <GifContainer key={gif.id} name={gif.title} url={gif.images.fixed_width_downsampled.webp} userId={userId} isLoaded={isLoaded} favourites={favourites} setFavourites={setFavourites} isFav={null} />
+            ))}
+          </div>
+
+        </>
       )}
 
     </div>
