@@ -10,8 +10,9 @@ const Page = () => {
   const [data, setData] = useState(null);
   const [selectedNumber, setSelectedNumber] = useState();
   const {userId,isLoaded} = useAuth()
-  const [favourites, setFavourites] = useLocalStorage(`${userId}`,localStorage.getItem(userId) ?JSON.parse(localStorage.getItem(userId)): [])
+  const [favourites, setFavourites] = useLocalStorage(`${userId}`,[])
 
+  console.log(favourites)
 
   const handleNumberClick = (number) => {
     setSelectedNumber(number);
