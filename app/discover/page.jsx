@@ -72,7 +72,7 @@ const Page = () => {
       {data?.length > 0 && (
 
         <>
-          <p className="text-slate-200 font-thin mt-4">double click on the start button to stash</p>
+          <p className="text-slate-200 font-thin mt-4">double click on the star button to stash</p>
           <div
             className={`glass mt-4 w-full flex flex-wrap gap-2 justify-center rounded-lg max-w-5xl mx-auto p-5 md:p-16 `}>
             {data.map((gif) => (
